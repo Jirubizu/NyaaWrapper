@@ -6,7 +6,6 @@
     <Authors>Jirubizu</Authors>
     <Description>A wrapper for nyaa.si</Description>
     <Company>Jirubizu</Company>
-    <SignAssembly>true</SignAssembly>
     <Version>1.0.2</Version>
     <AssemblyOriginatorKeyFile>jirubizu.pfx</AssemblyOriginatorKeyFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -14,6 +13,7 @@
     <PackageProjectUrl>https://github.com/Jirubizu/NyaaWrapper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Jirubizu/NyaaWrapper</RepositoryUrl>
     <PackageTags>Wrapper, Anime, Nyaa, Nyaa.si</PackageTags>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
