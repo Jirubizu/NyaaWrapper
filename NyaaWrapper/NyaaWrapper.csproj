@@ -10,6 +10,10 @@
     <Version>1.0.2</Version>
     <AssemblyOriginatorKeyFile>jirubizu.pfx</AssemblyOriginatorKeyFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageVersion>1.0.3</PackageVersion>
+    <PackageProjectUrl>https://github.com/Jirubizu/NyaaWrapper</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Jirubizu/NyaaWrapper</RepositoryUrl>
+    <PackageTags>Wrapper, Anime, Nyaa, Nyaa.si</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
