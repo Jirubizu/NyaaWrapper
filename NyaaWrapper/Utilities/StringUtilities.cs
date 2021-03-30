@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using NyaaWrapper.Structures;
 
 namespace NyaaWrapper.Utilities
 {
-    public static class StringUtilities
+    internal static class StringUtilities
+    
     {
         public static string GetCategory(string catUri)
         {

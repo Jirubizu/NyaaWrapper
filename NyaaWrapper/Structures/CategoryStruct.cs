@@ -1,4 +1,4 @@
-﻿namespace NyaaWrapper
+﻿namespace NyaaWrapper.Structures
 {
     public class CategoryStruct
     {

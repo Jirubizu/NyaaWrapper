@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AngleSharp;
 using AngleSharp.Dom;
-using NyaaWrapper.Enumerators;
 using NyaaWrapper.Extensions;
+using NyaaWrapper.Structures;
 using NyaaWrapper.Utilities;
 
 namespace NyaaWrapper

@@ -1,12 +1,11 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using NyaaWrapper.Attributes;
 
 namespace NyaaWrapper.Extensions
 {
-    static class EnumExtensions
+    internal static class EnumExtensions
     {
         public static string GetName(this Enum source)
         {
