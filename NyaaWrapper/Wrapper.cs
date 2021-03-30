@@ -18,12 +18,26 @@ namespace NyaaWrapper
             config = conf ?? Configuration.Default.WithDefaultLoader();
         }
 
-        public async Task<List<NyaaTorrentStruct>> GetEntries(QueryOptions options)
+        public async Task<List<NyaaTorrentStruct>> GetNyaaEntries(QueryOptions options)
+        {
+            List<NyaaTorrentStruct> torrents = await GetTorrents("https://nyaa.si", options);
+            return torrents;
+        }
+
+        public async Task<List<NyaaTorrentStruct>> GetSukebeiEntries(QueryOptions options)
+        {
+            List<NyaaTorrentStruct> torrents = await GetTorrents("https://sukebei.nyaa.si", options);
+            return torrents;
+        }
+
+        private async Task<List<NyaaTorrentStruct>> GetTorrents(string url, QueryOptions options)
         {
             options.Search = options.Search.Replace(" ", "+");
-            IDocument document = await BrowsingContext.New(config).OpenAsync($"https://nyaa.si/?f={options.Filter.GetUri()}&c={options.Category.GetUri()}&q={options.Search}");
+            IDocument document = await BrowsingContext.New(config)
+                .OpenAsync($"{url}/?f={options.Filter.GetUri()}&c={options.Category.GetUri()}&q={options.Search}");
             List<NyaaTorrentStruct> torrents = new List<NyaaTorrentStruct>();
-            IEnumerable<IElement> rows = document.QuerySelectorAll("tbody tr").Take(options.Amount != 0 ? options.Amount : 15);
+            IEnumerable<IElement> rows = document.QuerySelectorAll("tbody tr")
+                .Take(options.Amount != 0 ? options.Amount : 15);
 
             foreach (IElement row in rows)
             {
@@ -52,9 +66,9 @@ namespace NyaaWrapper
                 {
                     Category = StringUtilities.GetCategory(block[0]),
                     Id = int.Parse(block[1].Substring(6)),
-                    Url = "https://nyaa.si" + block[1],
+                    Url = url + block[1],
                     Name = block[2],
-                    DownloadUrl = "https://nyaa.si" + block[3],
+                    DownloadUrl = url + block[3],
                     Magnet = block[4],
                     Size = block[5],
                     Date = block[6],

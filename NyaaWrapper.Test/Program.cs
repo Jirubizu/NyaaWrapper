@@ -10,10 +10,23 @@ namespace NyaaWrapper.Test
         static void Main(string[] args)
         {
             Wrapper nyaaWrapper = new();
-            List<NyaaTorrentStruct> entries =
-                nyaaWrapper.GetEntries(new QueryOptions {Search = "kimetsu no yaiba"}).Result;
+            List<NyaaTorrentStruct> animeResults =
+                nyaaWrapper.GetNyaaEntries(new QueryOptions {Search = "kimetsu no yaiba"}).Result;
+
+            string animeResultsDisplay = GenerateOutString(animeResults);
+            Console.WriteLine(animeResultsDisplay);
+            
+            List<NyaaTorrentStruct> sukeibeiResults =
+                nyaaWrapper.GetSukebeiEntries(new QueryOptions {Search = "jav"}).Result;
+            
+            string sukeibeiGenerateOutString = GenerateOutString(sukeibeiResults);
+            Console.WriteLine(sukeibeiGenerateOutString);
+        }
+
+        static string GenerateOutString(List<NyaaTorrentStruct> torrents)
+        {
             StringBuilder stringBuilder = new();
-            foreach (NyaaTorrentStruct torrent in entries)
+            foreach (NyaaTorrentStruct torrent in torrents)
             {
                 stringBuilder.AppendLine($"Name: {torrent.Name}");
                 stringBuilder.AppendLine($"Id: {torrent.Id}");
@@ -28,7 +41,8 @@ namespace NyaaWrapper.Test
                 stringBuilder.AppendLine($"Completed Downloads: {torrent.CompletedDownloads}");
                 stringBuilder.AppendLine("----------------------------------------");
             }
-            Console.WriteLine(stringBuilder);
+
+            return stringBuilder.ToString();
         }
     }
 }

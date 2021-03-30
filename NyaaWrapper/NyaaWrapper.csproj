@@ -13,7 +13,6 @@
     <PackageProjectUrl>https://github.com/Jirubizu/NyaaWrapper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Jirubizu/NyaaWrapper</RepositoryUrl>
     <PackageTags>Wrapper, Anime, Nyaa, Nyaa.si</PackageTags>
-    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
